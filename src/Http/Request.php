@@ -12,7 +12,7 @@ namespace PPI\Framework\Http;
 
 use InvalidArgumentException;
 use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\StreamInterface;
+use Psr\Http\Message\StreamableInterface;
 use Psr\Http\Message\UriInterface;
 use Symfony\Component\HttpFoundation\Request as SymfonyHttpRequest;
 use UnexpectedValueException;
@@ -285,7 +285,7 @@ class Request extends SymfonyHttpRequest implements RequestInterface
      *
      * @return self
      */
-    public function withBody(StreamInterface $body)
+    public function withBody(StreamableInterface $body)
     {
         $new         = clone $this;
         $new->stream = $body;

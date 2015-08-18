@@ -12,7 +12,7 @@ namespace PPI\Framework\Http;
 
 use InvalidArgumentException;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\StreamInterface;
+use Psr\Http\Message\StreamableInterface;
 use Symfony\Component\HttpFoundation\Response as SymfonyHttpResponse;
 
 /**
@@ -295,7 +295,7 @@ class Response extends SymfonyHttpResponse implements ResponseInterface
      *
      * @return self
      */
-    public function withBody(StreamInterface $body)
+    public function withBody(StreamableInterface $body)
     {
         $new         = clone $this;
         $new->stream = $body;
